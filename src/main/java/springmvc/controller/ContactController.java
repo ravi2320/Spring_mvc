@@ -44,6 +44,9 @@ public class ContactController {
 		 * model.addAttribute("Header", "Success Message"); model.addAttribute("Desc",
 		 * "Form Submitted Data");
 		 */
+		if(user.getUsername().isEmpty()) {
+			return "redirect:/contact";
+		}
 		model.addAttribute("msg", "User created Successfully...!");
 		this.userService.createUser(user);
 		return "success";
